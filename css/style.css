@@ -1,0 +1,299 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400);
+
+body {
+	/*font-family: 'Source Sans Pro', sans-serif;*/
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 300;
+
+	/*the shorthand version of the above ^*/
+	font: 300 16px/1.5 'source sans pro', sans-serif;
+
+	color: #777;
+}
+
+/*this container class is being used to constrain our content to max-width and centre it too.*/
+.container{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+header{
+	background-color: #fff;
+	/*x-axis offset, y-axis offset, blur, colour*/
+
+	/*the value for box-shadow goes: x-axis offset, y-axis offset, blur, spread, colour*/
+
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	/*rgba lets us specify colours that have an alpha channel (which is used to control opacity). 
+	the order of the values goes: red, green, blue, alpha (rgba)
+	the alpha property can be anywhere between 0 and 1*/
+
+	/*we can position elements that are fixed to the viewport (browser window). when we do this the elements are
+	taken out of the normal flow of the page, and onto it's own layer.*/
+	position: fixed;
+	top: 0;
+
+	/*when elements are fixed, their width is broken down to the width of their content , and we need to specify it again*/
+	width: 100%;
+}
+
+h1{
+	float: left;
+	line-height: 75px;
+}
+
+h1 img{
+	/*our reset.css aligns everything to the 'baseline' by default, and we want to position our element in
+	the middle of the h1, so we override it here*/
+	vertical-align: middle;
+}
+
+nav{
+	float: right;
+	/*we set the line height here to get the navigations the exact same height as the logo (h1) element*/
+	line-height: 75px;
+}
+
+nav a {
+	text-decoration: none;
+	/*we could also use padding on the links (by calculating thr height of the nav and subtracting
+	the anchor height and then dividing that by two*/
+	/*padding: 27px 15px 28px 15px*/
+	padding: 0 15px;
+	color: #777;
+	/*this allows the links to behave like blocks whilst stacking up next to each other (inline). this is a
+	bit of a hybrid property that combines the best of both*/
+	display: inline-block;
+}
+
+.intro {
+	background-image: url(../images/blur-bg.jpg);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+
+	/*this overrides the default (auto) height of an element*/
+	height: 570px;
+	/*this will chop off the overflowing iphone image (hiding it from view)*/
+	overflow: hidden;
+
+	/*add margin top of 75px to stop the section headbutting the top of the page*/
+	margin-top: 75px;
+}
+
+.iphone {
+	float: left;
+	width: 50%;
+	/*moves the iPhone image into the centre*/
+	text-align: center;
+}
+
+.iphone img {
+	padding-top: 20px;
+}
+
+.lead {
+	float: right;
+	width: 50%;
+	/*it's a good idea to use padding instead of margins to create space above an element*/
+	padding: 100px 0 0 70px;
+}
+
+h2 {
+	font-size: 60px;
+	line-height: 1;
+}
+
+.lead p {
+	font-size: 22px;
+	padding: 50px 0;
+}
+
+/*the column class is going to be reused multiple times, so it's best to include as many reuseable/useful properties
+on it that can be shared*/
+.column {
+	float: left;
+	width: 25%;
+	text-align: center;
+	margin: 70px 0;
+}
+
+h3 {
+	font-size: 35px;
+	margin: 30px 0 5px 0;
+}
+
+.column p {
+	/*pad the paragraphs so they don't touch each other (at smaller screen widths)*/
+	padding: 0 30px;
+}
+
+.quotes {
+	background-color: #F1F1F1;
+}
+
+.quotes .column {
+	width: 33.33333%
+}
+
+/*we need to add this extra div to help achieve our inset box quote effect*/
+.quote-tile {
+	background-color: #fff;
+	padding: 65px 23px;
+	border: solid 1px #e1e1e1;
+	margin: 0 15px;
+}
+
+blockquote{
+	font-size: 22px;
+}
+
+.quote-tile p {
+	margin: 30px 0;
+	color: #999;
+}
+
+.quote-tile img {
+	/*rounds the corners of the image. do it enough and it becomes a circle. you can use pixels as well*/
+	border-radius: 100%;
+	/*making our border-radius 100% is a sure fire way to make the image a circle*/
+	max-width: 70px;
+}
+
+.contact {
+	background: url(../images/map.jpg) center;
+	background-size: cover;
+	padding: 70px 0;
+	text-align: center;
+}
+
+.contact a {
+	text-decoration: none;
+	color: #444;
+
+	/*using a border on our links gives us a lot more control than the default underline*/
+	border-bottom: solid 2px #444;
+	padding-bottom: 1px;
+}
+
+.contact p {
+	margin-bottom: 20px;
+}
+
+form {
+	width: 80%;
+	margin: 0 auto;
+}
+
+form .column {
+	/*we override our default column styles again to set the column width to half in our form*/
+	width: 50%;
+	margin: 0;
+}
+
+fieldset input,
+textarea {
+	/*these are things that we need to always override from the default user agent stylesheet.*/
+	border: none;
+	background: #fff;
+	width: 100%;
+	font-size: 16px;
+	line-height: 1.5;
+
+	/*and these properties are extras (but not necessary)*/
+	color: #777;
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 3px;
+}
+
+textarea {
+	height: 150px;
+	/*we can stop users from resizing the textarea horizontally, using the resize property.*/
+	resize: vertical;
+}
+
+/*the :focus pseudo state lets us trigger styles when an input has the cursor active*/
+input:focus
+textarea:focus {
+	/*this removes the default outline (blue in chrome) that appears in elements when focused*/
+	outline: none;
+}
+
+/*using the css attribute selector, we can target specific elements that have specific attributes and values
+(in this case all attributes with a type of 'submit').*/
+input[type="submit"] {
+	background: #000;
+	border:	none;
+	color: #fff;
+	padding: 10px 22px;
+
+	float: right;
+	border-radius: 3px;
+
+	/*forces the hand shaped pointer for the submit button (shows it's something that can be clicked)*/
+	cursor: pointer;
+}
+
+.form-left {
+	padding-right: 10px;
+}
+
+.form-right {
+	padding-left: 10px;
+}
+
+footer {
+	text-align: center;
+	padding: 40px 0;
+}
+
+footer a {
+	text-decoration: none;
+	margin: 0 5px 0 5px;
+}
+
+footer p {
+	margin-top: 10px
+}
+
+@media screen and (max-width: 810px) {
+	h1,
+	nav,
+	.iphone,
+	.lead,
+	.column,
+	.quotes .column,
+	form .column {
+		float: none;
+		width: 100%;
+	}
+
+	.form-left,
+	.form-right {
+		padding: 0;
+	}
+
+	.intro {
+		height: auto;
+		margin-top: 0
+	}
+
+	.lead {
+		text-align: center;
+		padding: 30px 0 0 0;
+	}
+
+	.column {
+		margin: 30px 0;
+	}
+
+	header {
+		text-align: center;
+		/*elements have a position of static by deault, we add it here to remove the fixed position so the
+		header doesn't take up space on small screens*/
+		position: static;
+	}
+}
+
